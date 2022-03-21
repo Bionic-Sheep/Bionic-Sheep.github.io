@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="String String对象用于保存字符串，也就是一组字符序列  字符串常量对象是用双引号括起的字符序列、例如”girl”  String的字符使用Unicode字符编码，一个字符占两个字节  &#96;&#96;&#96;java&#x2F;&#x2F;常用类String str1 &#x3D; new String();String str2 &#x3D; new String(String ori);String str3 &#x3D; new String(c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/03/21/String/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="String String对象用于保存字符串，也就是一组字符序列  字符串常量对象是用双引号括起的字符序列、例如”girl”  String的字符使用Unicode字符编码，一个字符占两个字节  &#96;&#96;&#96;java&#x2F;&#x2F;常用类String str1 &#x3D; new String();String str2 &#x3D; new String(String ori);String str3 &#x3D; new String(c">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/09/08/JAwi1GZf3mYXBqy.png">
+<meta property="article:published_time" content="2022-03-21T14:43:03.319Z">
+<meta property="article:modified_time" content="2021-09-22T07:18:10.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/09/08/JAwi1GZf3mYXBqy.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-String" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/21/String/" class="article-date">
+  <time datetime="2022-03-21T14:43:03.319Z" itemprop="datePublished">2022-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><ul>
+<li><p>String对象用于保存字符串，也就是一组字符序列</p>
+</li>
+<li><p>字符串常量对象是用双引号括起的字符序列、例如”girl”</p>
+</li>
+<li><p>String的字符使用Unicode字符编码，一个字符占两个字节</p>
+</li>
+<li><p>```java<br>//常用类<br>String str1 = new String();<br>String str2 = new String(String ori);<br>String str3 = new String(char[] a);<br>String str4 = new String(char[], int startIndex, int count);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">![image-20210907094152502](https://i.loli.net/2021/09/07/lbC7fFsqDnhOxYk.png)</span><br><span class="line"></span><br><span class="line">-  String 实现了Serializable，说明了String可以串行化即可以网络传输</span><br><span class="line">- String是以final类，不可被继承</span><br><span class="line">- String的属性：`private final char value[]`用于存放字符串内容</span><br><span class="line">- 一定注意：value是一个final类型，**不可以修改**，此处不可修改是地址不可以修改，值可以改。  </span><br><span class="line"></span><br><span class="line">## 创建String对象的区别</span><br><span class="line"></span><br><span class="line">- 直接复制 `String str1 = &quot;yyh&quot;`;</span><br><span class="line">  - 先从常量池查看是否有&quot;yyh&quot;的数据空间，如果有，直接指向；如果没有则重新创建，然后指向。str1最终指向的是常量池的空间地址</span><br><span class="line">- 调用构造器 `String str2 = new String(&quot;yyh&quot;);`</span><br><span class="line">  - 先在堆中创建空间，里面维护了value属性，指向常量池的&quot;yyh&quot;空间。如果常量池没有&quot;yyh&quot;。重新创建，如果有，直接通过value指向。最终指向的是堆中的空间地址</span><br><span class="line"></span><br><span class="line">## 字符串的特性</span><br><span class="line"></span><br><span class="line">- String是一个final类，代表不可变的字符序列</span><br><span class="line">- 字符串是不可变的。一个字符串对象一旦被分配，其内容是不可变的。 </span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">String a = &quot;hel&quot; + &quot;lo&quot;;</span><br><span class="line">//编译器将优化成String a = &quot;hello&quot;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> a + b;</span><br><span class="line">        <span class="comment">//1.先创建 StringBuilder sb = StringBuilder();</span></span><br><span class="line">        <span class="comment">//2.执行 sb.append(&quot;hello&quot;);</span></span><br><span class="line">        <span class="comment">//3.sb.append(&quot;abc&quot;)</span></span><br><span class="line">        <span class="comment">//4.String c = sb.toString();</span></span><br><span class="line">        <span class="comment">//c指向堆中的对象(String) value[] -&gt; 池中 “helloabc&quot;</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;helloabc&quot;</span>;</span><br><span class="line">        System.out.println(c == d )<span class="number">0</span>; <span class="comment">//false</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span> + <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        System.out.println(d == e); <span class="comment">//true</span></span><br><span class="line">   </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结</strong>：底层是StringBuilder sb = new StringBuilde();  -&gt; sb.append(a); -&gt; sb.append(b); -&gt; sb是在堆中，并且append是在原来字符串的基础上追加的。<strong>注意</strong>：String c1 = “ab” + “cd”；常量相加，看的是池，String c1 = a + b;变量相加，是在堆中。</p>
+<p><img src="https://i.loli.net/2021/09/08/JAwi1GZf3mYXBqy.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;yyh&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;yyds&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;yyhyyds&quot;</span>; <span class="comment">//指向池中</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> (s1 + s2).intern();<span class="comment">//指向池中 intern方法，当常量池中不存在&quot;&quot;字符的引用，将该对象的引用加入常量池，并返回这个对象的引用。当常量池存在“”这个字符串的引用，返回这个对象的引用。</span></span><br><span class="line">System.out.println(s3 == s4); <span class="comment">//true</span></span><br><span class="line">System.out.println(s3.equals(s4)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="comment">//equals():判断对象内容是否一致</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//length():获取字符个数，字符串的长度</span></span><br><span class="line">System.out.println(str1.length());<span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//indexOf():获取字符在字符串对象中第一次出现的索引，索引从0开始，找不到返回-1</span></span><br><span class="line">System.out.println(str1.indexOf(<span class="string">&#x27;l&#x27;</span>));<span class="comment">//2</span></span><br><span class="line">System.out.println(str1.indexOf(<span class="string">&quot;ll&quot;</span>));<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//substring(): 截取指定范围的子串</span></span><br><span class="line">System.out.println(str1.substring(<span class="number">2</span>)); <span class="comment">//llo //从索引2开始截取后面所有内容</span></span><br><span class="line">System.out.println(str1.substring(<span class="number">1</span>,<span class="number">3</span>));<span class="comment">//el //从索引0开始，截取索引3-1=2的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//toUpperCase():将字符串中的小写字符转为大写</span></span><br><span class="line">System.out.println(str1.toUpperCase());<span class="comment">//HELLO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//toLowerCase():将字符串中的大写字符转为小写</span></span><br><span class="line">System.out.println(str1.toLowerCase());<span class="comment">//hello</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//concat():拼接字符串</span></span><br><span class="line">System.out.println(str1.concat(str2));<span class="comment">//hellohello</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//substring():替换字符串中的字符</span></span><br><span class="line">System.out.println(str1.replace(<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;H&#x27;</span>));<span class="comment">//Hello</span></span><br><span class="line">System.out.println(str1.replace(<span class="string">&quot;he&quot;</span>,<span class="string">&quot;HE&quot;</span>));<span class="comment">//HEllo</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//split():分割字符串</span></span><br><span class="line"><span class="type">String</span> <span class="variable">poem</span> <span class="operator">=</span> <span class="string">&quot;床前明月光,疑似地上霜&quot;</span>;</span><br><span class="line">String[] split = poem.split(<span class="string">&quot;,&quot;</span>);<span class="comment">//分割符：以,为分割。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//toCharArray():转换成字符数组</span></span><br><span class="line"><span class="type">char</span>[] s = str1.toCharArray();</span><br><span class="line"></span><br><span class="line"><span class="comment">//compareTo():比较字符串的大小，前者大返回正数，后者大返回负数，0则相等。</span></span><br><span class="line">System.out.println(str1.compareTo(str2)); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/21/String/" data-id="cl10tip0r0002xovh77sb4qcg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/21/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/21/String%20%E3%80%81%20StringBuffer%20%E3%80%81%20StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/21/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/21/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/21/%E6%B3%9B%E5%9E%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/21/%E7%BA%BF%E7%A8%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/21/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
