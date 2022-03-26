@@ -64,6 +64,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Java中的Integer的长度判断" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/26/Java%E4%B8%AD%E7%9A%84Integer%E7%9A%84%E9%95%BF%E5%BA%A6%E5%88%A4%E6%96%AD/" class="article-date">
+  <time datetime="2022-03-26T12:55:19.944Z" itemprop="datePublished">2022-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java中的Integer的长度判断</p>
+<p>Java的数据类型是两种：</p>
+<ol>
+<li>基本数据类型:int, double…..等</li>
+<li>引用类型：Integer，Double等</li>
+</ol>
+<p>一般比较大小有两种，要么==，要么equals。</p>
+<p>==在比较基本数据类型时，是数值大小，比较引用类型时，是比较两个引用对象是否相等。</p>
+<p>只有equals，不管是基本数据类型还是引用数据累心，都比较的是数值大小（或者重写equals方法的内容），所以我们在比较引用类型对象的数值大小时，尽量采用equals。</p>
+<p>下面给个例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">127</span>, b = <span class="number">127</span>;</span><br><span class="line">System.out.println(a == b);<span class="comment">// true</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">127</span>, d = <span class="number">127</span>;</span><br><span class="line">System.out.println(a == b); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">128</span>, b = <span class="number">128</span>;</span><br><span class="line">System.out.println(a == b);<span class="comment">// true</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">128</span>, d = <span class="number">128</span>;        </span><br><span class="line">System.out.println(a == b); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>出现上面情况是因为Integer将[-128,127]范围的整数都提前实例化了，只要数值相等，==比较的都是同一个对象。我们可以用Integer.intValue转为基本数据类型，或者equals来比较</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/26/Java%E4%B8%AD%E7%9A%84Integer%E7%9A%84%E9%95%BF%E5%BA%A6%E5%88%A4%E6%96%AD/" data-id="cl17y0cld0002tovh9zeb2cjb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-滑动窗口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/26/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="article-date">
+  <time datetime="2022-03-26T04:56:05.674Z" itemprop="datePublished">2022-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><p>不断的调节子序列的起始位置和终止位置，得到我们想要的结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(枚举选择)</span><br><span class="line">	右边界</span><br><span class="line">	<span class="keyword">while</span>(窗口条件)</span><br><span class="line">		左边界</span><br><span class="line">		更新结果</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/26/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" data-id="cl17y0clg0004tovh9a3p7ued" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-双指针" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/03/25/%E5%8F%8C%E6%8C%87%E9%92%88/" class="article-date">
@@ -113,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/25/%E5%8F%8C%E6%8C%87%E9%92%88/" data-id="cl16hef170003zcvh9few0kyz" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/25/%E5%8F%8C%E6%8C%87%E9%92%88/" data-id="cl17y0clf0003tovh11yo20v0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" data-id="cl16hef1a0004zcvhcg6hbwv6" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" data-id="cl17y0cli0005tovhfn1u875x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/20/ArrayList%E5%92%8CLinkedList/" data-id="cl16hef0n0000zcvheq4f67wx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/20/ArrayList%E5%92%8CLinkedList/" data-id="cl17y0cks0000tovh1r43c221" class="article-share-link">Share</a>
       
       
     </footer>
@@ -269,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/20/hexo%20+%20github%20%E6%98%BE%E7%A4%BA404%20There%20isn't%20a%20GitHub%20Pages%20site%20here/" data-id="cl16hef150002zcvh4l552kkq" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/20/hexo%20+%20github%20%E6%98%BE%E7%A4%BA404%20There%20isn't%20a%20GitHub%20Pages%20site%20here/" data-id="cl17y0cl80001tovh7f4m2uih" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/comparable%20%E5%92%8C%20comparator/" data-id="cl16hef110001zcvh0ycd80qd" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/comparable%20%E5%92%8C%20comparator/" data-id="cl17y0clj0006tovh2vd1ae3y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,6 +432,14 @@
       <ul>
         
           <li>
+            <a href="/2022/03/26/Java%E4%B8%AD%E7%9A%84Integer%E7%9A%84%E9%95%BF%E5%BA%A6%E5%88%A4%E6%96%AD/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/26/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/03/25/%E5%8F%8C%E6%8C%87%E9%92%88/">(no title)</a>
           </li>
         
@@ -373,14 +449,6 @@
         
           <li>
             <a href="/2022/03/20/ArrayList%E5%92%8CLinkedList/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/20/hexo%20+%20github%20%E6%98%BE%E7%A4%BA404%20There%20isn't%20a%20GitHub%20Pages%20site%20here/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/04/comparable%20%E5%92%8C%20comparator/">(no title)</a>
           </li>
         
       </ul>
