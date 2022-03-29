@@ -1,247 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>goTo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二分查找二分查找是一个高效率的查找方法，通常应用在顺序存储结构，且关键字有序。 查找过程：  将搜索空间中间的数mid与target比较 当mid数小于target说明target在搜索空间右边，将[mid+1-right]作为搜索空间，当mid数大于target说明target在搜索空间左边，将left-mid-1作为搜索空间。 重复1.2步骤，直至发现target或搜索空间为0  核心思想：不">
-<meta property="og:type" content="article">
-<meta property="og:title" content="goTo">
-<meta property="og:url" content="http://example.com/2022/03/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.html">
-<meta property="og:site_name" content="goTo">
-<meta property="og:description" content="二分查找二分查找是一个高效率的查找方法，通常应用在顺序存储结构，且关键字有序。 查找过程：  将搜索空间中间的数mid与target比较 当mid数小于target说明target在搜索空间右边，将[mid+1-right]作为搜索空间，当mid数大于target说明target在搜索空间左边，将left-mid-1作为搜索空间。 重复1.2步骤，直至发现target或搜索空间为0  核心思想：不">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-22T13:05:15.905Z">
-<meta property="article:modified_time" content="2022-03-22T13:05:01.601Z">
-<meta property="article:author" content="BionicSheep">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="goTo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-<meta name="generator" content="Hexo 5.4.1"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">goTo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-二分查找" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/03/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="article-date">
-  <time datetime="2022-03-22T13:05:15.905Z" itemprop="datePublished">2022-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><p>二分查找是一个高效率的查找方法，通常应用在顺序存储结构，且关键字有序。</p>
-<p>查找过程：</p>
-<ol>
-<li>将搜索空间中间的数mid与target比较</li>
-<li>当mid数小于target说明target在搜索空间右边，将[mid+1-right]作为搜索空间，当mid数大于target说明target在搜索空间左边，将left-mid-1作为搜索空间。</li>
-<li>重复1.2步骤，直至发现target或搜索空间为0</li>
-</ol>
-<p>核心思想：不断的缩短搜索空间来寻值。</p>
-<h2 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h2><p><strong>左闭右闭</strong>和<strong>左闭右开</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">search</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">       <span class="comment">//最简单的模板</span></span><br><span class="line">      <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = nums.length-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">while</span>(left &lt;= right)&#123; <span class="comment">// [left, right]</span></span><br><span class="line">           <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right - left)/<span class="number">2</span>;</span><br><span class="line">           <span class="keyword">if</span>(nums[mid] == target) <span class="keyword">return</span> mid;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; target)&#123;</span><br><span class="line">               right = mid -<span class="number">1</span>; <span class="comment">//nums[mid]参与了运算，即[left, mid]结束搜索，下一个搜索空间为[mid+1,right]</span></span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               left = mid + <span class="number">1</span>; <span class="comment">//同理,[mid, right]结束搜索，下一个搜索空间为[left, mid-1]</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">search</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span> ,right = nums.length;</span><br><span class="line">       <span class="keyword">while</span>(left &lt; right)&#123; <span class="comment">//[left, right)，因为right = nums.length 表示nums[right]是不存在的数</span></span><br><span class="line">           <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (left + right)/<span class="number">2</span>;</span><br><span class="line">           <span class="keyword">if</span>(nums[mid] == target) <span class="keyword">return</span> mid;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target)&#123;</span><br><span class="line">               left = mid + <span class="number">1</span>; <span class="comment">// nums[mid]参与运算，即[left, mid]结束搜索，下一个[mid+1, right)</span></span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               right = mid; <span class="comment">//同理，[mid,right)结束，下一个搜索空间是[left, mid-1],这里为了保持左闭右开的一致性，用right表示mid-1，即[left, mid-1] == [left, mid) == [left, right)</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<p>之前不太明白左闭右开的搜索逻辑，但是在LC上看了大佬liweiwei1419的文章后才算是豁然开朗。</p>
-<p>下面给出我做的几个二分查找LC题</p>
-<h2 id="35-搜索插入位置"><a href="#35-搜索插入位置" class="headerlink" title="35. 搜索插入位置"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></h2><p>这题算是第三个模板，只有两个判断，同过不断缩短搜索空间，最后left == right跳出循环</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">    <span class="comment">//首先弄懂它查找的值在数组中的实际意义，找到target第一次大于等于元素的下标</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = nums.length;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123; <span class="comment">//当left和right重合，停止搜索，即left是大于或等于的元素下标</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (left+right)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid] &lt; target)&#123;</span><br><span class="line">            left = mid + <span class="number">1</span>; <span class="comment">//[left, mid] 小于它 [mid+1, right)</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right = mid; <span class="comment">//[mid, right)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="34-在排序数组中查找元素的第一个和最后一个位置"><a href="#34-在排序数组中查找元素的第一个和最后一个位置" class="headerlink" title="34. 在排序数组中查找元素的第一个和最后一个位置"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. 在排序数组中查找元素的第一个和最后一个位置</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span>[] searchRange(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">leftBorder</span> <span class="operator">=</span> getLeftBorder(nums, target);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rightBorder</span> <span class="operator">=</span> getRightBorder(nums, target);</span><br><span class="line">    <span class="keyword">if</span>(leftBorder == -<span class="number">2</span> ||  rightBorder == -<span class="number">2</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;; <span class="comment">//因为它不但向一边逼近</span></span><br><span class="line">    <span class="keyword">if</span>(rightBorder - leftBorder &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;leftBorder+<span class="number">1</span>, rightBorder-<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getLeftBorder</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span>&#123;</span><br><span class="line">    <span class="comment">//寻找左边界,即重复元素第一个，那么右边不断向左缩短即可</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = nums.length;</span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> -<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (left+right)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid] &gt;= target)&#123; <span class="comment">//因为是右边不断向左缩小，那么必然有相等的情况</span></span><br><span class="line">            right = mid; <span class="comment">// [mid, right) --&gt; [left, mid-1] -- &gt;[left, mid) </span></span><br><span class="line">            ans = right - <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            left = mid + <span class="number">1</span>; <span class="comment">//[left, mid] --&gt; [mid+1, right]</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getRightBorder</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = nums.length;</span><br><span class="line">    <span class="type">int</span> ans= -<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (left+right)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid] &lt;= target)&#123; <span class="comment">//，如果不存该数，例如nums = [5,7,7,8,8,10], target = 6，那么不会进入下面语句</span></span><br><span class="line">            <span class="comment">//左边向右逼近，</span></span><br><span class="line">            left = mid + <span class="number">1</span>; <span class="comment">////[left, mid] --&gt; [mid+1, right]</span></span><br><span class="line">            ans = left;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="69-x-的平方根"><a href="#69-x-的平方根" class="headerlink" title="69. x 的平方根 "></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sqrtx/">69. x 的平方根 </a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="comment">// 有序，找值，k² &lt;= x 中k的最大值</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = x; <span class="comment">//这里不能x/2，因为x/2，因为奇偶数不同，奇数除2会向下取整数，所以成闭区间，偶数又是开区间</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>((<span class="type">long</span>)mid*mid &lt;= x)&#123;</span><br><span class="line">            <span class="comment">//应该是向右逼近，</span></span><br><span class="line">            ans = mid; <span class="comment">//ans记下当前满足条件的k</span></span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="367-有效的完全平方数"><a href="#367-有效的完全平方数" class="headerlink" title="367. 有效的完全平方数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-perfect-square/">367. 有效的完全平方数</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPerfectSquare</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">       <span class="comment">//和x一样</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = num;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (right-left)/<span class="number">2</span> + left;</span><br><span class="line">            <span class="keyword">if</span>((<span class="type">long</span>)mid*mid &lt;= num)&#123;</span><br><span class="line">                ans = mid;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans*ans == num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+{% block page_class %}page-post-detail{% endblock %}
 
 
+{% block content %}
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面部分我基本只写了两种判断就是为了锻炼分析搜索空间的能力。一定要记住核心思想：<strong>不断的减小搜索空间</strong>。</p>
-<p>解题首要要判断我们到底要找的是什么样的值，有哪些特征。</p>
-<p>比如说35.搜索插入位置，我们要找到值是一个大于等于target的元素下标。</p>
-<p><em>当前左边所有的搜索空间均小于它，那么反过来，随着搜索空间的减小，mid+1是不是最终就大于等于target</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(nums[mid] &lt; target)&#123; </span><br><span class="line">   left = mid + <span class="number">1</span>; <span class="comment">//[left, mid] 小于它 [mid+1, right)</span></span><br></pre></td></tr></table></figure>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-<p><em>同理,右边所有的搜索空间均大于等于它，那么最终left == right的时候，right就停在了大于等于target的元素下标的位置</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span>&#123; </span><br><span class="line">    right = mid; <span class="comment">//[mid, right)</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>所以最后返回 left或right均可。</p>
-<p>34,69,367问题都是类似，都是找元素下标，34左边找第一个target下标，右边找最后一个target下边，69和367是一样的问题，34找k²&lt;=x的最大值k,367找k²==x。都是逐步减小搜索空间，然后逼近。仔细体会</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" data-id="cl1c6xnzo0005ywvhdr7z41vf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/03/25/%E5%8F%8C%E6%8C%87%E9%92%88/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/03/20/ArrayList%E5%92%8CLinkedList/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/03/27/%E7%AE%97%E6%B3%95%E9%A2%98%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%93%88%E5%B8%8C%E6%95%B0%E7%BB%84/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/26/Java%E4%B8%AD%E7%9A%84Integer%E7%9A%84%E9%95%BF%E5%BA%A6%E5%88%A4%E6%96%AD/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/26/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/25/%E5%8F%8C%E6%8C%87%E9%92%88/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">(no title)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 BionicSheep<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
