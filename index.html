@@ -229,6 +229,266 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/4.2%E4%BA%AC%E4%B8%9C%E7%AC%94%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="goTo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/4.2%E4%BA%AC%E4%B8%9C%E7%AC%94%E8%AF%95/" itemprop="url">2022.4.2 京东笔试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-04-02T21:42:37+08:00">
+                2022-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一题：</p>
+<p>在满二叉树上行走，U上L左R右</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/输入描述</span><br><span class="line"><span class="comment">//第一行两个空格隔开的正整数N，X</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//接下来一行一个长度为N的只包含U,L,R三种字母的字符串。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//对于90%的数据，1≤N≤100，1≤X＜210</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//对于100%的数据，1≤N≤5.105，1≤X＜230</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        String str;</span><br><span class="line">        <span class="type">long</span> n; <span class="comment">//路径</span></span><br><span class="line">        <span class="type">long</span> x;<span class="comment">//所在节点编号</span></span><br><span class="line">        <span class="keyword">while</span> (in.hasNext()) &#123;</span><br><span class="line">            n = in.nextInt();</span><br><span class="line">            x = in.nextInt();</span><br><span class="line">            str = in.next();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">                <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> str.charAt(i); <span class="comment">//拿到当前行走命令</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//左孩子是 2*x 右孩子是 2*x+1</span></span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;U&#x27;</span> || c ==<span class="string">&#x27;u&#x27;</span>) &#123;</span><br><span class="line"></span><br><span class="line">                    x = (<span class="type">long</span>)x / <span class="number">2</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;R&#x27;</span> || c == <span class="string">&#x27;r&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">//向右走</span></span><br><span class="line">                    x = (<span class="type">long</span>)(<span class="number">2</span> * x + <span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    x = (<span class="type">long</span>)(<span class="number">2</span> * x);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(x);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本题只过了0.91，难点就在于避免超时，一开始x的接受没有用long，只能过55，后面仔细阅读题目才发现，数据范围很大，改为long，但还是有一例数据难过，可能是字符串导致的超时。</p>
+<p>第二题</p>
+<p>粉刷匠：不是很理解题意，但是最多的次数为3，我判断失误，只过了0.09，但是可以先判断是否相等，相等为0,不等输出rand()mod3+1，可以得到0.81，大失误。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/4.2360%E7%AC%94%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="goTo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/4.2360%E7%AC%94%E8%AF%95/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-04-02T21:35:20+08:00">
+                2022-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在一张透明的纸上，用笔写下一个字符串。然后将纸翻面，请你判断正面和背面看到的字符串是否一样。</span><br><span class="line">* 请注意，字符串在正反面看上去一样，必须要求每个字符是左右对称的，比如&#x27;W&#x27;字符是左右对称的，而&#x27;N&#x27;不是</span><br><span class="line"></span><br><span class="line">样例输入</span><br><span class="line">ABA</span><br><span class="line">AHA</span><br><span class="line">HHA</span><br><span class="line">样例输出</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;*/</span><br><span class="line">       <span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">	   <span class="type">char</span>[] ch = &#123;<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;I&#x27;</span>,<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;O&#x27;</span>,<span class="string">&#x27;T&#x27;</span>,<span class="string">&#x27;U&#x27;</span>,<span class="string">&#x27;V&#x27;</span>,<span class="string">&#x27;W&#x27;</span>,<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>&#125;;                                            </span><br><span class="line">       <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">       <span class="keyword">while</span>(in.hasNext())&#123;</span><br><span class="line">            str = in.nextLine();</span><br><span class="line">            <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line">            Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">char</span> c : ch)&#123;</span><br><span class="line">                map.put(c,<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">char</span> c : str.toCharArray())&#123;</span><br><span class="line">                <span class="keyword">if</span>(!map.containsKey(c))&#123;</span><br><span class="line">                    k = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(k == -<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right= str.length()-<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(str.charAt(left) != str.charAt(right))&#123;</span><br><span class="line">                        k = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(k == <span class="number">1</span>) System.out.println(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> System.out.println(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//组队吃鸡</span></span><br><span class="line"><span class="comment">//时间限制： 3000MS</span></span><br><span class="line"><span class="comment">//内存限制： 589824KB</span></span><br><span class="line"><span class="comment">//题目描述：</span></span><br><span class="line"><span class="comment">//最近一款吃鸡类型的游戏火爆全球。在组队模式下，你可以邀请自己的好友组建自己的小队</span></span><br><span class="line"><span class="comment">// ，并选择是否填充（是否同意和非好友游玩），然后加入游戏。现在有A个单人队伍，B个双人队伍，C个三人队伍，D个四人队伍，</span></span><br><span class="line"><span class="comment">// 并且全都同意填充，但已有的多人队伍的队员不能被拆开填充到其他队伍，请问最多能组成多少个四人队伍。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输入描述</span></span><br><span class="line"><span class="comment">//第一行一个正整数T，表示数据组数。（1≤T≤100）</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//接下来T行，每行四个非负整数，A，B，C，D。（0≤A, B, C, D≤150）</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//输出描述</span></span><br><span class="line"><span class="comment">//共T行，每行输出一个队伍数。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//样例输入</span></span><br><span class="line"><span class="comment">//4</span></span><br><span class="line"><span class="comment">//1 2 3 4</span></span><br><span class="line"><span class="comment">//4 3 2 1</span></span><br><span class="line"><span class="comment">//2 2 2 1</span></span><br><span class="line"><span class="comment">//0 2 0 1</span></span><br><span class="line"><span class="comment">//样例输出</span></span><br><span class="line"><span class="comment">//6</span></span><br><span class="line"><span class="comment">//5</span></span><br><span class="line"><span class="comment">//4</span></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> t;</span><br><span class="line">        t = in.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(in.hasNext())&#123;</span><br><span class="line">            <span class="type">int</span> a, b, c, d;</span><br><span class="line">            a = in.nextInt();</span><br><span class="line">            b = in.nextInt();</span><br><span class="line">            c = in.nextInt();</span><br><span class="line">            d = in.nextInt();</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//首先将四人队补充完整</span></span><br><span class="line">            ans += d;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (a &gt;= c) &#123;</span><br><span class="line">                <span class="comment">//单人队的数量超过三人队，可全部扩充为四人队</span></span><br><span class="line">                ans += c;</span><br><span class="line">                a -= c;</span><br><span class="line">                c = <span class="number">0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans += a; <span class="comment">//</span></span><br><span class="line">                a = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ans += b / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">//两人队也没了</span></span><br><span class="line">                b = <span class="number">0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                b = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//现在的情况是d == 0, c != 0 则a == 0, c == 0,说明a还剩</span></span><br><span class="line">            <span class="comment">//如果a很多的情况，可能存在浪费</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (b == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">                        ans += <span class="number">1</span>;</span><br><span class="line">                        a -= <span class="number">2</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ans += a/<span class="number">4</span>;</span><br><span class="line">            System.out.println(ans);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;*/</span><br></pre></td></tr></table></figure>
+
+
+
+<p>情况：两道题都挺简单的，都AC了，第一种反转字符串，只要排除掉非对称字符即可，第二题和leetcode上面找零钱非常类似，核心就是5美元的数量，对应到本题就是单人队的数量，以单人队来补充bc队的人数。</p>
+<p>代码可读性很差， 因为在时间紧张的条件下，不会在意代码的优美。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://example.com/%E7%AE%97%E6%B3%95%E9%A2%98%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%93%88%E5%B8%8C%E6%95%B0%E7%BB%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1423,7 +1683,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
